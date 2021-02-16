@@ -17,6 +17,10 @@ public class ProjectileGun : MonoBehaviour
 
     int bulletsLeft, bulletsShot;
 
+    //Recoil
+    public Rigidbody playerRbg;
+    public float recoilForce;
+
     //bools
     bool shooting, readyToShoot, reloading;
 
@@ -43,7 +47,7 @@ public class ProjectileGun : MonoBehaviour
         MyInput();
 
         //Set ammot display, if it exist 
-        if(ammunitionDisplay != null)
+        if (ammunitionDisplay != null)
         {
             ammunitionDisplay.SetText(bulletsLeft / bulletPerTap + " / " + magazineSize / bulletPerTap);
         }
@@ -62,7 +66,7 @@ public class ProjectileGun : MonoBehaviour
         if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();
 
         //Shooting
-        if(readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
             //set bullets shot
             bulletsShot = 0;
@@ -81,7 +85,7 @@ public class ProjectileGun : MonoBehaviour
 
         //check if ray hits something 
         Vector3 targetPoint;
-        if(Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))
         {
             targetPoint = hit.point;
         }
@@ -107,10 +111,12 @@ public class ProjectileGun : MonoBehaviour
 
         //Add forces to bullet
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
-        //currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
+        currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
+
+       
 
         //Instantiate muzzle flash, if you have one
-        if(muzzleFlash != null)
+        if (muzzleFlash != null)
         {
             Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
         }
@@ -118,19 +124,25 @@ public class ProjectileGun : MonoBehaviour
 
         bulletsLeft--;
         bulletsShot++;
+        
 
         //Invoke resetShot function (if not already invoked)
-        if(allowInvoke)
+        if (allowInvoke)
         {
             Invoke("ResetShot", timeBetweenShooting);
             allowInvoke = false;
+
+            //Add recoil to player
+            playerRbg.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
+
         }
 
         //if more than one bulletsPerTap make sure to repeat shoot function
-        if(bulletsShot < bulletPerTap && bulletsLeft > 0)
+        if (bulletsShot < bulletPerTap && bulletsLeft > 0)
         {
             Invoke("Shoot", timeBetweenShots);
         }
+
     }
 
     private void ResetShot()
@@ -151,4 +163,6 @@ public class ProjectileGun : MonoBehaviour
         bulletsLeft = magazineSize;
         reloading = false;
     }
+
+
 }
