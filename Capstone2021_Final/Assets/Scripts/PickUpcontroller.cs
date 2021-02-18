@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
+
 public class PickUpcontroller : MonoBehaviour
 {
     public ProjectileGun gunScript;
@@ -15,6 +15,24 @@ public class PickUpcontroller : MonoBehaviour
 
     public bool equipped;
     public static bool slotFull;
+
+    private void Start()
+    {
+        //SetUp
+        if(!equipped)
+        {
+            gunScript.enabled = false;
+            rb.isKinematic = false;
+            coll.isTrigger = false;
+        }
+        if(equipped)
+        {
+            gunScript.enabled = true;
+            rb.isKinematic = true;
+            coll.isTrigger = true;
+            slotFull = true;
+        }
+    }
 
     private void Update()
     {
@@ -32,12 +50,19 @@ public class PickUpcontroller : MonoBehaviour
         equipped = true;
         slotFull = true;
 
+        //Make weapon a child of the camera and move it to default position 
+        transform.SetParent(gunContainer);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        transform.localScale = Vector3.one;
+
         //Make Rigidbody kinematic and BoxxCollider a trigger
         rb.isKinematic = true;
         coll.isTrigger = true;
 
         //Enable Script
-        gunScript.enable = true;
+        gunScript.enabled = true;
+        
     }
 
     public void Drop()
@@ -45,12 +70,24 @@ public class PickUpcontroller : MonoBehaviour
         equipped = false;
         slotFull = false;
 
+        //set parent to null
+        transform.SetParent(null);
+
         //Make Rigidbody not kinematic and BoxxCollider a trigger
         rb.isKinematic = false;
         coll.isTrigger = false;
 
+        //Gun carries momentum of player
+        rb.velocity = player.GetComponent<Rigidbody>().velocity;
+
+        //addforce
+        rb.AddForce(fpsCam.forward * dropForwardForce, ForceMode.Impulse);
+        rb.AddForce(fpsCam.up * dropUpwardForce, ForceMode.Impulse);
+        //add random rotation
+        float random = Random.Range(-1f, 1f);
+        rb.AddTorque(new Vector3(random, random, random) * 10);
+
         //Disable Script
-        gunScript.enable = false;
+        gunScript.enabled = false;
     }
 }
-*/
