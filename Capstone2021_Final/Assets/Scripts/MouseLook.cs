@@ -27,5 +27,18 @@ public class MouseLook : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+
+
+        ////When the menu is paused
+        if(Input.GetKeyUp(KeyCode.P))
+        {
+            Cursor.lockState = CursorLockMode.Confined; //Locks the mouse
+            Cursor.visible = true; // Make the cursor visable
+        }
     }
+
+   
+        
+
+        
 }
