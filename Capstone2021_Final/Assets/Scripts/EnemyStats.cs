@@ -7,9 +7,12 @@ public class EnemyStats : MonoBehaviour
 {
     public float health;
     public float maxHealth;
+    public float dmg;
 
     public GameObject healthBarUI;
     public Slider slider;
+
+    
 
     void Start()
     {
@@ -35,10 +38,26 @@ public class EnemyStats : MonoBehaviour
         {
             health = maxHealth;
         }
+
+        
+        
+    }
+
+     void OnCollisionEnter(Collision coll)
+    {
+        if (coll.collider.CompareTag("Bullet"))
+        {
+            Damage();
+        }
     }
 
     float CalculateHealth()
     {
         return health / maxHealth;
+    }
+
+   void  Damage()
+    {
+        health = health - dmg;
     }
 }

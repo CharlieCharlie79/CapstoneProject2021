@@ -7,6 +7,10 @@ public class CustomBullet : MonoBehaviour
     public GameObject explosion;
     public LayerMask whatIsEnemies;
 
+    //
+    public float damage;
+    //
+
     //Stats
     [Range(0f, 1f)]
     public float bounciness;
@@ -69,6 +73,14 @@ public class CustomBullet : MonoBehaviour
         collisions++;
 
         if (collision.collider.CompareTag("Enemy") && explodeOnTouch) Explode();
+
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            collision.gameObject.SendMessage("hit", damage);         
+            // Destroy(gameObject);
+        }
+
+        
     }
 
     private void Setup()
@@ -91,4 +103,6 @@ public class CustomBullet : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRange);
     }
+
+    
 }

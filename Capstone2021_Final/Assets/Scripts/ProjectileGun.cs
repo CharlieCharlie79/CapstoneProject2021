@@ -7,6 +7,8 @@ public class ProjectileGun : MonoBehaviour
     //bullet
     public GameObject bullet;
 
+    
+
     //bullet force
     public float shootForce, upwardForce;
 
@@ -165,4 +167,5 @@ public class ProjectileGun : MonoBehaviour
     }
 
 
+    
 }
