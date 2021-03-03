@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
     IEnumerator LoadLevel(int levelIndex)
     {
         //Play animation
-        transition.SetTrigger("Strat");
+        transition.SetTrigger("Start");
 
         //Wait
         yield return new WaitForSeconds(transitionTime);

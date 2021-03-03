@@ -9532,6 +9532,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2300261012796853305, guid: edf5afc9eb8c84c408f3dc68f8f94e81,
+        type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2300261012796853306, guid: edf5afc9eb8c84c408f3dc68f8f94e81,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9606,6 +9611,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7910404539797945420, guid: e0be7da9f7ae3204e9dfadd9e5596adf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7910404540258331117, guid: e0be7da9f7ae3204e9dfadd9e5596adf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9665,6 +9675,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: First_Person_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910404540645344237, guid: e0be7da9f7ae3204e9dfadd9e5596adf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0be7da9f7ae3204e9dfadd9e5596adf, type: 3}
