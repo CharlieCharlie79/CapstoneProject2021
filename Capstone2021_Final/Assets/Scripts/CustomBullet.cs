@@ -74,12 +74,13 @@ public class CustomBullet : MonoBehaviour
 
         if (collision.collider.CompareTag("Enemy") && explodeOnTouch) Explode();
 
+        /*
         if (collision.collider.CompareTag("Enemy"))
         {
             collision.gameObject.SendMessage("hit", damage);         
             // Destroy(gameObject);
         }
-
+        */
         
     }
 
