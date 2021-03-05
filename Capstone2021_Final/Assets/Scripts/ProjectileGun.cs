@@ -53,6 +53,7 @@ public class ProjectileGun : MonoBehaviour
         {
             ammunitionDisplay.SetText(bulletsLeft / bulletPerTap + " / " + magazineSize / bulletPerTap);
         }
+
     }
 
     private void MyInput()
@@ -167,5 +168,6 @@ public class ProjectileGun : MonoBehaviour
     }
 
 
-    
+  
+   
 }
