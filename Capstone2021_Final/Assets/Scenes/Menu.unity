@@ -737,7 +737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 1782953951}
-  transitionTime: 2
+  transitionTime: 6
 --- !u!1 &562221126
 GameObject:
   m_ObjectHideFlags: 0
@@ -2504,6 +2504,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857487967132313733, guid: eea7008fda0fda24db101825d81c6d4f,
+        type: 3}
+      propertyPath: transitionTime
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eea7008fda0fda24db101825d81c6d4f, type: 3}
