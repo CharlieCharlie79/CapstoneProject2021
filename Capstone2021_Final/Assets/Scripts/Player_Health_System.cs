@@ -1,17 +1,63 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player_Health_System : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float health;
+    public float maxHealth;
+    public float dmg;
+
+    public GameObject healthBarUI;
+    public Slider slider;
+
+
+
     void Start()
     {
-        
+        health = maxHealth;
+        slider.value = CalculateHealth();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        slider.value = CalculateHealth();
+
+        if (health < maxHealth)
+        {
+            healthBarUI.SetActive(true);
+        }
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
+
+
+    }
+
+    void OnCollisionEnter(Collision coll)
+    {
+        if (coll.collider.CompareTag("Enemy"))
+        {
+            Damage();
+            Debug.Log("Collides");
+        }
+    }
+
+    float CalculateHealth()
+    {
+        return health / maxHealth;
+    }
+
+    void Damage()
+    {
+        health = health - dmg;
     }
 }
