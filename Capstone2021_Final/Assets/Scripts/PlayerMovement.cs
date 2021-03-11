@@ -49,20 +49,36 @@ public class PlayerMovement : MonoBehaviour
     }
     */
 
-    //Variables
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float walkSpeed;
-    [SerializeField] private float runSpeed;
+    /* //Variables
+     [SerializeField] private float moveSpeed;
+     [SerializeField] private float walkSpeed;
+     [SerializeField] private float runSpeed;
+
+     private Vector3 moveDirection;
+     private Vector3 velocity;
+
+     [SerializeField] private bool isGrounded;
+     [SerializeField] private float groundCheckdistance;
+     [SerializeField] private LayerMask groundMask;
+     [SerializeField] private float gravity;
+
+     [SerializeField] private float jumpHeight;*/
+
+    //////////////
+
+    public float moveSpeed;
+    public float walkSpeed;
+    public float runSpeed;
 
     private Vector3 moveDirection;
     private Vector3 velocity;
 
-    [SerializeField] private bool isGrounded;
-    [SerializeField] private float groundCheckdistance;
-    [SerializeField] private LayerMask groundMask;
-    [SerializeField] private float gravity;
+    public bool isGrounded;
+    public float groundCheckdistance;
+    public LayerMask groundMask;
+    public float gravity;
 
-    [SerializeField] private float jumpHeight;
+    public float jumpHeight;
 
     //Reference
     private CharacterController controller;
