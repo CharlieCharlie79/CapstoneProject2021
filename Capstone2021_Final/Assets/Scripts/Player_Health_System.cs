@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player_Health_System : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class Player_Health_System : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene("DeathScene");
         }
 
         if (health > maxHealth)
