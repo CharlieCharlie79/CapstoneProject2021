@@ -18,9 +18,9 @@ public class Score_System : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score.text = "" + scoreValue;  
+        score.text = " " + scoreValue;  
         
-        if(scoreValue >= 50)
+        if(scoreValue >= 150)
         {
             SceneManager.LoadScene("Victory_Scene");
             

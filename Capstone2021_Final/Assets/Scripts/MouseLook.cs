@@ -35,6 +35,11 @@ public class MouseLook : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined; //Locks the mouse
             Cursor.visible = true; // Make the cursor visable
         }
+        else if (Time.timeScale != 0f)
+        {
+            Cursor.visible = false;
+        }
+        
     }
 
    

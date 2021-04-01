@@ -8,6 +8,8 @@ public class Spawner : MonoBehaviour
     public float spawnTime = 3f;
     public float startTime = 5f;
 
+    public float timer = 60f;
+
     void Start()
     {
         InvokeRepeating("Spawn", startTime, spawnTime);
@@ -17,4 +19,14 @@ public class Spawner : MonoBehaviour
     {
         Instantiate(prefab, transform.position, Quaternion.identity);
     }
+
+    void Update()
+    {
+        timer -= Time.deltaTime;
+        if(timer <=0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
