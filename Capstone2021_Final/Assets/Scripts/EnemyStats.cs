@@ -33,7 +33,7 @@ public class EnemyStats : MonoBehaviour
         {
             Destroy(gameObject);
             //Score
-            Score_System.scoreValue += 50;
+            Score_System.scoreValue += 5;
         }
 
         if(health > maxHealth)

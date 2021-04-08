@@ -22,7 +22,7 @@ public class Score_System : MonoBehaviour
         
         if(scoreValue >= 150)
         {
-            SceneManager.LoadScene("Victory_Scene");
+            SceneManager.LoadScene("Level_2");
             
             Cursor.lockState = CursorLockMode.Confined; //Locks the mouse
             Cursor.visible = true; // Make the cursor visable

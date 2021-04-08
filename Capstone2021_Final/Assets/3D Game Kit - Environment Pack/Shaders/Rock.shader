@@ -1,4 +1,4 @@
-﻿// Implements correct triplanar normals in a Surface Shader with out computing or passing additional information from the
+// Implements correct triplanar normals in a Surface Shader with out computing or passing additional information from the
 // vertex shader. Instead works around some oddities with how Surface Shaders handle the tangent space vectors. Attempting
 // to directly access the tangent matrix data results in a shader generation error. This works around the issue by tricking
 // the surface shader into not using those vectors until actually in the generated shader code. - Ben Golus 2017
@@ -31,7 +31,7 @@ Shader "Custom/Rock" {
         #pragma multi_compile _ LOD_FADE_CROSSFADE
 
         #pragma surface surf Standard fullforwardshadows
-        #pragma target 5.0
+#pragma target 3.5
         #include "UnityStandardUtils.cginc"
         #include "UnityCG.cginc" 
         #include "AutoLight.cginc"
